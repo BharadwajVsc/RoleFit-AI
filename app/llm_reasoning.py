@@ -62,10 +62,9 @@ def llm_reasoning(
     context_chunks = [item["chunk_text"] for item in retrieved_chunks]
     prompt = build_prompt(
         context_chunks, query
-    )# Builds the prompt using the retrieved chunks and user query.
+    )  # Builds the prompt using the retrieved chunks and user query.
     llm_response = run_llm(
         prompt, llm_client
     )  # Sends the prompt to the LLM and gets the response.
 
     return llm_response
-

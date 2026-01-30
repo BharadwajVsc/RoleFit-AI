@@ -14,7 +14,7 @@ chunks = generate_embeddings(chunks)  # this will generate embeddings for all th
 
 build_faiss_index(chunks)  # this will build the faiss index and save it to disk
 
-query = "Where is japan and kyoto?"
+query = "What skills are required for generative ai role?"
 retrieved_chunks = retrieve(
     query, top_k=3
 )  # this will retrieve top 3 relevant chunks for the query

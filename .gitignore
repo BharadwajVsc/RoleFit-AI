@@ -1,0 +1,12 @@
+#secrets
+.env
+
+#virtual environtments
+.venv/
+
+#python cache
+__pycache__/
+*.pyc
+
+#progress tracking pictures
+progress tracker/

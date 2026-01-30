@@ -1,0 +1,38 @@
+[
+  {
+    "chunk_id": 0,
+    "text": "VSC Bharadwaj  \nSOFTWARE ENGINEER (GENAI & AI PLATFORMS) | 3+ YEARS ENTERPRISE EXPERIENCE | \n1 YEAR GENAI (LLMS, RAG, LANGCHAIN)  \n+91 7661053368 | bharadwajvcs@gmail.com | Hyderabad, Telangana  | LinkedIn \u2013 Bharadwaj VSC  \n \nProfessional Summary  \nSoftware Engineer with 3+ years of enterprise experience and 1 year building production -\ngrade Generative AI systems , focused on building LLM -powered applications using LangChain, \nRAG, and Google Gemini Pro. Experienced in developing AI -driven solutions for HR Tech and \nFinTech to automate workflows and improve decision -making. Seeking GenAI Engineer or \nApplied LLM Engin eer roles to build scalable, production -ready AI systems.  \nExperienc"
+  },
+  {
+    "chunk_id": 1,
+    "text": "ngineer or \nApplied LLM Engin eer roles to build scalable, production -ready AI systems.  \nExperience  \n \nGenerative AI Engineer | GenAI Lakes                                            Jun 2024 \u2013 Mar 2025  \n\u2022 Built LLM -powered applications using LangChain, RAG, and Google Gemini Pro for HR \nTech and FinTech use cases.  \n\u2022 Designed and optimized prompt templates for structured outputs, improving response \nquality and consistency.  \n\u2022 Developed FastAPI -based services to expose GenAI workflows as production -ready APIs.  \n\u2022 Implemented NLP pipelines for JD analysis, skill extraction, resume matching, and \ninterview question generation.  \n\u2022 Worked on optimizing LLM pipelines for latency, accu"
+  },
+  {
+    "chunk_id": 2,
+    "text": "tching, and \ninterview question generation.  \n\u2022 Worked on optimizing LLM pipelines for latency, accuracy, and reliability.  \nSenior Systems Engineer | Infosys Ltd                                          Nov 2023 \u2013 Jan 2024  \nSystems Engineer | Infosys Ltd  Sept 2021 \u2013 Oct 2023  \n \nSkills  \n \n\u2022 Generative AI & LLMs  \no LangChain, LangGraph, LangSmith, Retrieval -Augmented Generation (RAG)  \no Large Language Models: Google Gemini Pro, OpenAI, Ollama  \no Prompt Engineering, LLM Integration, Hugging Face Transformers\n\u2022 Backend & AI Application Development  \no FastAPI, Gradio  \no Docker, Model Serialization (Pickle, Joblib ) \n\u2022 Machine Learning & NLP (Supporting)  \no Natural Language Processing "
+  },
+  {
+    "chunk_id": 3,
+    "text": "ialization (Pickle, Joblib ) \n\u2022 Machine Learning & NLP (Supporting)  \no Natural Language Processing (NLP)  \no TensorFlow, Keras  \no SpaCy, NLTK  \n \n\u2022 Programming & Data Analysis  \no Python  \no NumPy, Pandas, Matplotlib, Seaborn  \n \n\u2022 Databases & Systems  \no SQL, PostgreSQL, Oracle Database, PL/SQL  \no Database Performance Tuning, Unix  \n \n \nProjects  \n \nRoleFit AI: A RAG -Based Resume \u2013JD Matching System | Personal Project | Ongoing  \nTech Stack: Python, RAG , FAISS, Embeddings, LLMs  \n\u2022 Designed a Retrieval -Augmented Generation (RAG) pipeline to semantically match \nresumes with job descriptions  \n\u2022 Implemented PDF ingestion, text chunking with overlap, embedding generation, and \nFAISS -bas"
+  },
+  {
+    "chunk_id": 4,
+    "text": "ons  \n\u2022 Implemented PDF ingestion, text chunking with overlap, embedding generation, and \nFAISS -based vector retrieval.  \n\u2022 Used LLM -based reasoning to explain match relevance instead of keyword -based \nscoring.  \n\u2022 Focused on modular, interview -safe architecture with explainability and clean \nseparation of components.  \n \n \nFastHire99 | Generative AI Engineer  \nGenAI Lakes | Jun 2024 \u2013 Mar 2025  \nTech Stack: Gemini Pro, LangChain, FastAPI, PostgreSQL, NLP  \n\u2022 Built an AI -driven system for job description summarization, skill extraction, and \ninterview question generation.  \n\u2022 Automated JD -to-resume skill matching, reducing manual recruiter screening effort.\n\u2022 Designed prompt -based wor"
+  },
+  {
+    "chunk_id": 5,
+    "text": " -to-resume skill matching, reducing manual recruiter screening effort.\n\u2022 Designed prompt -based workflows and integrated LLMs for accurate and context -aware \noutputs.  \n\u2022 Developed REST APIs for seamless integration with HR platforms.  \n \nAI-Powered Job Description Generator & Analyzer  \nGenAI Lakes | Jun 2024 \u2013 Sep 2024  \nTech Stack: Gemini Pro, Gradio, NLP  \n\u2022 Developed a dynamic JD generation tool using LLMs and Gradio for IT roles.  \n\u2022 Implemented keyword -aware JD generation to improve role relevance and structure.  \n\u2022 Optimized chain -of-thought prompting to enhance logical flow and output quality.  \n \nAtomization of EDA Methods using Ollama  \nPersonal Project  \nTech Stack: Ollama, L"
+  },
+  {
+    "chunk_id": 6,
+    "text": "tput quality.  \n \nAtomization of EDA Methods using Ollama  \nPersonal Project  \nTech Stack: Ollama, LangChain, Python, Pandas, Matplotlib  \n\u2022 Built an LLM -driven automation tool for Exploratory Data Analysis (EDA).  \n\u2022 Integrated Mistral -7B via Ollama to generate dataset insights and summaries.  \n\u2022 Automated preprocessing, correlation analysis, and visualization with a Gradio -based UI.  \n \nOracle Database Automation & Performance Monitoring  \nInfosys Ltd | Jan 2022 \u2013 Jan 2024  \nTech Stack: Oracle SQL, PL/SQL, Unix Scripting, Database Automation  \n\u2022 Worked on database automation and performance monitoring for banking clients using \nSQL and PL/SQL.  \n\u2022 Performed query optimization, indexing,"
+  },
+  {
+    "chunk_id": 7,
+    "text": "ce monitoring for banking clients using \nSQL and PL/SQL.  \n\u2022 Performed query optimization, indexing, and database profiling to reduce latency and \nimprove transaction efficiency.  \n\u2022 Designed monitoring and health -check scripts for anomaly detection in production \nsystems.  \n\u2022 Collaborated with DBAs and cross -functional teams to support deployments and \nperformance improvements.  \n\u2022 Contributed to banking system configuration documentation ensuring regulatory \ncompliance.\nEducation  \n \nSASTRA Deemed to Be University  2021  \nBachelor of Technology  | Computer Science  \n \nCertifications  \n \n\u2022 Full Stack Data Science and AI  \n\u2022 Docker For Absolute Beginners  \n\u2022 Oracle Database Administrator D"
+  },
+  {
+    "chunk_id": 8,
+    "text": "Full Stack Data Science and AI  \n\u2022 Docker For Absolute Beginners  \n\u2022 Oracle Database Administrator DBA  \n\u2022 Oracle Database Architecture  \nLanguages  \n \nEnglish | Hindi | Telugu | Tamil"
+  }
+]

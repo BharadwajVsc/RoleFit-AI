@@ -1,4 +1,4 @@
-def chunking(text: str, chunk_size: int = 600, overlap: int = 100) -> list:
+def chunking(text: str, chunk_size: int = 700, overlap: int = 100) -> list:
     """Splits text into overlapping chunks.
 
     Args:
@@ -14,13 +14,14 @@ def chunking(text: str, chunk_size: int = 600, overlap: int = 100) -> list:
         return []
     chunks = []
     start = 0
-    text_length = len(text)
-    while start < text_length:
-        end = start + chunk_size
-        chunk = text[start:end]
-        if chunk.strip():
-            chunks.append(chunk.strip())
-        start = end - overlap
-        if start < 0:
-            start = 0
+    chunk_id = 0
+    while start < len(text):
+        end = start + chunk_size  # Define end of chunk
+        chunk_text = text[start:end]  # Extract chunk text
+        chunks.append(
+            {"chunk_id": chunk_id, "text": chunk_text}
+        )  # Append chunk to list
+
+        chunk_id = chunk_id + 1  # Increment chunk ID
+        start = end - overlap  # Move start forward with overlap
     return chunks

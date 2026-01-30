@@ -1,0 +1,24 @@
+# Core Python utilities
+numpy
+
+# PDF ingestion
+PyPDF2
+
+# Embeddings
+sentence-transformers
+torch
+
+# Vector search
+faiss-cpu
+
+# LLM / Transformers utilities
+transformers
+
+# Gemini LLM
+google-generativeai
+
+# Environment variable handling
+python-dotenv
+
+# (Optional) UI / experiments
+streamlit
