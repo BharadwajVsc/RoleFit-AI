@@ -21,3 +21,16 @@ def upload_pdf(file_path: str) -> dict:
             extracted_text.append(page_text.strip())
 
     return {"file_name": file_path, "extracted_text": "\n".join(extracted_text)}
+
+
+def ingest_jd(jd_text: str) -> dict:
+    """
+    Ingests job description text.
+
+    Args:
+        jd_text (str): The job description text.
+
+    Returns:
+        dict: A dictionary containing the job description text.
+    """
+    return {"job_id": "jd_001", "raw_text": jd_text, "structured": None}

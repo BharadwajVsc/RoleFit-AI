@@ -68,3 +68,37 @@ def llm_reasoning(
     )  # Sends the prompt to the LLM and gets the response.
 
     return llm_response
+
+
+def extract_jd_requirements(jd: dict, llm_client):
+    """Extracts structured requirements from a job description using LLM."""
+
+    prompt = f"""
+    You are an expert technical recruiter.
+
+Extract information from the job description and return ONLY valid JSON.
+
+STRICT RULES:
+- Use ONLY the keys specified below.
+- All keys must be lowercase and snake_case.
+- "required_skills" must contain ONLY hard technical skills (tools, frameworks, technologies).
+- Do NOT include responsibilities or soft skills in skills.
+- "preferred_skills" are optional/nice-to-have technical skills only.
+- "experience_level" must be a short string like "0-2 years", "2+ years", or "Not specified".
+- "responsibilities" must be action-oriented tasks.
+
+Return JSON in EXACTLY this format:
+{{
+    "role": "",
+    "required_skills": [],
+    "preferred_skills": [],
+    "experience_level": "",
+    "responsibilities": []
+}}
+
+    
+    Job Description:
+    {jd['raw_text']}"""
+
+    response = llm_client.generate(prompt)
+    return response.strip()
