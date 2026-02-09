@@ -6,27 +6,40 @@ from app.retrieval import retrieve
 from app.llm_reasoning import llm_reasoning, extract_jd_requirements
 from app.llm_client import LLMClient
 from app.matcher import match_skills, matched_responsibilities, evaluate_match_score
+from app.explanation import generate_explanation
 import json
+
+
+import re
 
 
 def clean_llm_json(text: str) -> str:
     """
-    Extract the first valid JSON object from LLM output.
+    Extract and fix JSON from LLM output safely.
     """
-    text = text.strip()
 
+    # Remove markdown ```json ```
+    text = re.sub(r"```json|```", "", text).strip()
+
+    # Extract JSON block
     start = text.find("{")
     end = text.rfind("}")
 
     if start == -1 or end == -1:
         raise ValueError("No JSON object found in LLM output")
 
-    return text[start : end + 1]
+    json_text = text[start : end + 1]
+
+    # Fix common JSON issues
+    json_text = re.sub(r",\s*}", "}", json_text)  # remove trailing comma
+    json_text = re.sub(r",\s*]", "]", json_text)  # remove trailing comma
+
+    return json_text
 
 
 llm_client = LLMClient()
 
-doc = upload_pdf(r"C:\Users\bhara\Downloads\Rohan_Chinta.pdf")
+doc = upload_pdf(r"D:\interview prep\Bharadwaj VSC Resume.pdf")
 jd_text = "We are looking for a skilled Generative AI Engineer to join our innovative team. The ideal candidate will have experience in developing and deploying generative AI models, with a strong background in machine learning, deep learning, and natural language processing. Responsibilities include designing AI architectures, training models on large datasets, and collaborating with cross-functional teams to integrate AI solutions into products. Proficiency in Python, TensorFlow, PyTorch, and experience with cloud platforms such as AWS or GCP is required. The candidate should also have excellent problem-solving skills and the ability to stay updated with the latest advancements in AI technology."
 chunks = chunking(doc["extracted_text"])
 print(f"Total Chunks: {len(chunks)}")  # this will print the total number of chunks
@@ -80,7 +93,7 @@ print(structured_jd)  # this will print the structured JD requirements
 required_skills = structured_jd["required_skills"]
 responsibilities = structured_jd["responsibilities"]
 
-matched_skills, missing_skills, skill_evidence = match_skills(required_skills, top_k=3)
+matched_skills, missing_skills, skill_evidence = match_skills(required_skills, top_k=8)
 
 matched_resps, resp_evidence = matched_responsibilities(responsibilities, top_k=3)
 
@@ -88,6 +101,9 @@ final_score = evaluate_match_score(
     matched_skills, len(required_skills), matched_resps, len(responsibilities)
 )
 
+explanation = generate_explanation(
+    final_score, matched_skills, missing_skills, matched_resps
+)
 print("\n---- Skill Matching Results ----\n")
 print(f"Matched Sore:{final_score}%\n")
 
@@ -102,3 +118,16 @@ for s in missing_skills:
 print("\nMatched Responsibilities:")
 for r in matched_resps:
     print(f"- {r}")
+
+results = {
+    "match_score": final_score,
+    "matched_skills": matched_skills,
+    "missing_skills": missing_skills,
+    "matched_responsibilities": matched_resps,
+    "strengths": explanation["strengths"],
+    "weaknesses": explanation["weaknesses"],
+    "recommendation": explanation["recommendation"],
+    "improvement_suggestions": explanation["improvement_suggestions"],
+}
+print("\n---- Final Evaluation ----\n")
+print(json.dumps(results, indent=2))

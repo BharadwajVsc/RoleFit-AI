@@ -1,4 +1,4 @@
-RETRIEVAL_SCORE_THRESHOLD = 1.5
+RETRIEVAL_SCORE_THRESHOLD = 0.6
 
 
 def build_prompt(
@@ -51,7 +51,9 @@ def llm_reasoning(
         }
 
     best_score = retrieved_chunks[0]["score"]
-    if best_score > RETRIEVAL_SCORE_THRESHOLD:
+
+    # If distance is too high → weak match
+    if best_score > 1.35:
         return {
             "Summary": "Sufficient relevant information not found in the uploaded document.",
             "Key_Points": [],
