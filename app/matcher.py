@@ -19,6 +19,7 @@ def normalize(text: str) -> str:
         "pytorch lightning": "pytorch",
         "gcp": "google cloud",
         "aws": "amazon web services",
+        "NLP": "Natural Language Processing",
     }
 
     for k, v in replacements.items():

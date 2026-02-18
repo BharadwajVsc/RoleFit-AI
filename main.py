@@ -40,7 +40,7 @@ def clean_llm_json(text: str) -> str:
 llm_client = LLMClient()
 
 doc = upload_pdf(r"D:\interview prep\Bharadwaj VSC Resume.pdf")
-jd_text = "We are looking for a skilled Generative AI Engineer to join our innovative team. The ideal candidate will have experience in developing and deploying generative AI models, with a strong background in machine learning, deep learning, and natural language processing. Responsibilities include designing AI architectures, training models on large datasets, and collaborating with cross-functional teams to integrate AI solutions into products. Proficiency in Python, TensorFlow, PyTorch, and experience with cloud platforms such as AWS or GCP is required. The candidate should also have excellent problem-solving skills and the ability to stay updated with the latest advancements in AI technology."
+jd_text = "Software Engineer specializing in Generative AI and AI-powered platforms with 3+ years of enterprise experience and hands-on expertise in building production-grade LLM applications. Experienced in developing scalable AI systems using LangChain, Retrieval-Augmented Generation (RAG), and modern LLMs such as Google Gemini and OpenAI. Skilled in designing prompt-driven workflows, building FastAPI-based AI services, and creating NLP pipelines for automation, data extraction, and intelligent decision support. Strong background in Python, backend development, and database systems, with experience delivering AI-driven solutions for HR Tech and FinTech domains. Proven ability to optimize AI pipelines for performance, reliability, and accuracy while building modular, production-ready architectures."
 chunks = chunking(doc["extracted_text"])
 print(f"Total Chunks: {len(chunks)}")  # this will print the total number of chunks
 
@@ -48,7 +48,7 @@ chunks = generate_embeddings(chunks)  # this will generate embeddings for all th
 
 build_faiss_index(chunks)  # this will build the faiss index and save it to disk
 
-query = "What skills are required for generative ai role?"
+query = "Extract and rank the key skills required for this role. Separate them into must-have and good-to-have skills."
 retrieved_chunks = retrieve(
     query, top_k=3
 )  # this will retrieve top 3 relevant chunks for the query
