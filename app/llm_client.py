@@ -1,20 +1,19 @@
-import os
-from dotenv import load_dotenv
-from google import genai
-
-load_dotenv()
+import requests
 
 
 class LLMClient:
     def __init__(self):
-        # Uses GOOGLE_API_KEY from environment automatically
-        self.client = genai.Client()
-        self.model = "gemini-2.5-flash"
+        self.model = "deepseek-r1:latest"
+        # self.model = "gemma:latest "  # or "mistral", "phi3"
+        self.base_url = "http://localhost:11434/api/generate"
 
     def generate(self, prompt: str):
-        response = self.client.models.generate_content(
-            model=self.model,
-            contents=prompt,
-        )
+        payload = {"model": self.model, "prompt": prompt, "stream": False}
 
-        return response.text
+        response = requests.post(self.base_url, json=payload)
+
+        if response.status_code != 200:
+            raise Exception(f"Ollama error: {response.text}")
+
+        data = response.json()
+        return data["response"]

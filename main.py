@@ -39,10 +39,11 @@ def clean_llm_json(text: str) -> str:
 
 llm_client = LLMClient()
 
-doc = upload_pdf(r"D:\interview prep\Bharadwaj VSC Resume.pdf")
+doc = upload_pdf(r"D:\interview\Bharadwaj VSC Resume.pdf")
 jd_text = "Software Engineer specializing in Generative AI and AI-powered platforms with 3+ years of enterprise experience and hands-on expertise in building production-grade LLM applications. Experienced in developing scalable AI systems using LangChain, Retrieval-Augmented Generation (RAG), and modern LLMs such as Google Gemini and OpenAI. Skilled in designing prompt-driven workflows, building FastAPI-based AI services, and creating NLP pipelines for automation, data extraction, and intelligent decision support. Strong background in Python, backend development, and database systems, with experience delivering AI-driven solutions for HR Tech and FinTech domains. Proven ability to optimize AI pipelines for performance, reliability, and accuracy while building modular, production-ready architectures."
 chunks = chunking(doc["extracted_text"])
 print(f"Total Chunks: {len(chunks)}")  # this will print the total number of chunks
+print(chunks)
 
 chunks = generate_embeddings(chunks)  # this will generate embeddings for all the chunks
 
@@ -70,13 +71,6 @@ for i, item in enumerate(
     print(f"Preview: {preview}...\n")
 print("---------------------------\n")
 
-
-final_response = llm_reasoning(
-    retrieved_chunks=retrieved_chunks, query=query, llm_client=llm_client
-)
-print('\nFinal LLM Response"\n')
-print(final_response)  # this will print the final response from the LLM
-
 jd = ingest_jd(jd_text)  # this will ingest the job description text
 structured_jd = extract_jd_requirements(
     jd, llm_client
@@ -86,9 +80,24 @@ print("\nRAW LLM OUTPUT:")
 print(structured_jd)
 
 structured_jd = clean_llm_json(structured_jd)
+# print("\nCleaned JSON String:")
+# print(structured_jd)  # this will print the cleaned JSON string
 structured_jd = json.loads(structured_jd)  # parse the JSON string to dict
 print("\n ---- Structured JD Requirements ---- \n")
 print(structured_jd)  # this will print the structured JD requirements
+
+print("\n--- Calling LLM ---\n")
+
+final_response = llm_reasoning(
+    retrieved_chunks=retrieved_chunks,
+    query=query,
+    llm_client=llm_client,
+    structured_jd=structured_jd,
+)
+print('\nFinal LLM Response"\n')
+print(final_response)  # this will print the final response from the LLM
+print('\nFinal LLM Response ENDDDDDDDDDDDDDDDDD"\n')
+
 
 required_skills = structured_jd["required_skills"]
 responsibilities = structured_jd["responsibilities"]

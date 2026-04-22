@@ -42,6 +42,8 @@ def retrieve(query, top_k=5):
         query_embedding = query_embedding.astype("float32")
     else:  # Convert to numpy array if not already
         query_embedding = np.array(query_embedding, dtype="float32")
+
+    faiss.normalize_L2(query_embedding)
     distances, indices = index.search(
         query_embedding, top_k
     )  # Search the index for similar chunks

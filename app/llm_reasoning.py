@@ -1,8 +1,10 @@
 RETRIEVAL_SCORE_THRESHOLD = 0.6
 
+from app.prompts import system_prompt
+
 
 def build_prompt(
-    context_chunk, user_query
+    context_chunk, user_query, structured_jd
 ):  # Builds a prompt for the LLM using the provided context chunks and user query.
     context_text = "\n\n".join(
         [f"Chunk {i+1}:{chunk}" for i, chunk in enumerate(context_chunk)]
@@ -25,6 +27,9 @@ def build_prompt(
     Query:
     {user_query}
     """  # Constructs the final prompt with context and query.
+    prompt = system_prompt.format(
+        context_text=context_text, user_query=user_query, structured_jd=structured_jd
+    )  # Inserts context and query into a system prompt template.
 
     return prompt
 
@@ -39,7 +44,7 @@ def run_llm(
 
 
 def llm_reasoning(
-    retrieved_chunks, llm_client, query
+    retrieved_chunks, llm_client, query, structured_jd
 ):  # Main function to perform LLM reasoning using retrieved context chunks and user query.
 
     if not retrieved_chunks:  # Checks if there are no retrieved chunks.
@@ -63,8 +68,10 @@ def llm_reasoning(
 
     context_chunks = [item["chunk_text"] for item in retrieved_chunks]
     prompt = build_prompt(
-        context_chunks, query
+        context_chunks, query, structured_jd
     )  # Builds the prompt using the retrieved chunks and user query.
+    # print("\n--- Constructed Prompt for LLM ---\n")
+    # print(prompt)
     llm_response = run_llm(
         prompt, llm_client
     )  # Sends the prompt to the LLM and gets the response.

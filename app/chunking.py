@@ -12,6 +12,9 @@ def chunking(text: str, chunk_size: int = 700, overlap: int = 100) -> list:
 
     if not text:
         return []
+
+    text = text.lower()
+
     chunks = []
     start = 0
     chunk_id = 0
